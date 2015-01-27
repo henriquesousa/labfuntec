@@ -40,7 +40,7 @@ Route::get('/logout', 'UserController@logout');
 
 
 //Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
-Route::group(array('prefix' => 'admin','before' => 'auth'), function()
+Route::group(array('before' => 'auth'), function()
 {
 	
 	Route::get('/index', 'HomeController@index');

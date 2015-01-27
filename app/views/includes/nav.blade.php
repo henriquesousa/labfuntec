@@ -12,7 +12,7 @@
         <div class="animbrand">
 
             @if(Auth::check())
-              {{ HTML::link('admin/', 'LabFUNTEC', array('class' => 'navbar-brand')) }}
+              {{ HTML::link('index', 'LabFUNTEC', array('class' => 'navbar-brand')) }}
             @else
               {{ HTML::link('index', 'LabFUNTEC', array('class' => 'navbar-brand')) }}
             @endif
@@ -25,7 +25,7 @@
         <ul class="nav navbar-nav">
           <li class="">
             @if(Auth::check())
-              {{ HTML::link('admin/', 'Home') }} 
+              {{ HTML::link('index', 'Home') }}
             @else 
               {{ HTML::link('index', 'Home') }} 
             @endif
@@ -34,13 +34,6 @@
            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Cadastros <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li>{{ HTML::linkRoute('funcionario_add', 'Funcionários') }}</li>
-
-                @if(Auth::check())
-                  <li class="divider"></li>
-                  <li>{{ HTML::linkRoute('fornecedor_add', 'Fornecedores') }}</li>
-                  <li>{{ HTML::linkRoute('produto_add', 'Produtos') }}</li>
-                @endif
-
             </ul>
           </li>
          <li>{{ HTML::link('sobre', 'Sobre') }}</li>
