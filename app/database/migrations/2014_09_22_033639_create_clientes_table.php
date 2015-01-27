@@ -18,13 +18,8 @@ class CreateClientesTable extends BaseMigration {
 			->setTable($table)
 			->addPrimary()
 			->addString("nome")
-			->addInteger("rg")
 			->addInteger("cpf")
-			->addString("email")
-			->addString("username")
-			->addString("password")
-			->addString("token")
-			->addTimestamps();
+			->addInteger("telefone");
 		});
 	}
 

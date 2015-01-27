@@ -41,7 +41,7 @@
     <div class="container">
       <div class="row">
         <div class="col col-lg-12 col-sm-12">
-          <h2>Minotaure .::. WEB  <small>Controle Integrado</small></h2>
+          <h3>LabFUNTEC .::. WEB  </h3>
           
           
         </div>

@@ -2,7 +2,7 @@
 
   @section('head')
     @parent
-    <title>cPanel :: Minotaure - LanHouse</title>
+    <title>cPanel :: LABORATÓRIO FUNTEC</title>
   
   	<!-- CSS code from Bootply.com editor -->
         

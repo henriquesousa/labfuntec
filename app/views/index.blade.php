@@ -31,10 +31,10 @@
                 <div class="panel panel-default">
                     <div class="panel-body text-center">                    
                         <h2>Funcionarios</h2>
-                        <p>Registros: {{ $qtd['funcionario'] }}</p>
+                        <p>Registros: {{ $qtd['fun'] }}</p>
                         <p class="alert-info">Passe o mouse</p>
                     </div>
-                    @foreach($funcionario as $fc)
+                    @foreach($funcionarios as $fc)
                       <div class="panel-footer"><a href="#"><span class="badge">{{ $fc->nome }}</span></a></div>
                     @endforeach
                 </div>
@@ -43,12 +43,12 @@
             <div class="col-md-3 col-sm-4 col-xs-12">
                 <div class="panel panel-default">
                     <div class="panel-body text-center">                    
-                        <h2>Categorias</h2>
-                        <p>Registros: {{ $qtd['cat'] }}</p>
+                        <h2>Clientes</h2>
+                        <p>Registros: {{ $qtd['cli'] }}</p>
                         <p class="alert-info">Passe o mouse</p>
                     </div>
-                    @foreach($categoria as $fc)
-                      <div class="panel-footer"><a href="#"><span class="badge">{{ $fc->descricao }}</span></a></div>
+                    @foreach($clientes as $cli)
+                      <div class="panel-footer"><a href="#"><span class="badge">{{ $cli->nome }}</span></a></div>
                     @endforeach
                 </div>
             </div>
@@ -57,40 +57,27 @@
             <div class="col-md-3 col-sm-4 col-xs-12">
                 <div class="panel panel-default">
                     <div class="panel-body text-center">                    
-                        <h2>Produtos</h2>
-                        <p>Registros: {{ $qtd['prod'] }}</p>
+                        <h2>Convênios</h2>
+                        <p>Registros: {{ $qtd['conv'] }}</p>
                         <p class="alert-info">Passe o mouse</p>
                     </div>
-                    @foreach($produto as $fc)
-                      <div class="panel-footer"><a href="#"><span class="badge">{{ $fc->descricao }}</span></a></div>
+                    @foreach($convenios as $conv)
+                      <div class="panel-footer"><a href="#"><span class="badge">{{ $conv->nome }}</span></a></div>
                     @endforeach
                 </div>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-12">
                 <div class="panel panel-default">
                     <div class="panel-body text-center">                    
-                        <h2>Fornecedores</h2>
-                        <p>Registros: {{ $qtd['forn'] }}</p>
+                        <h2>Analises</h2>
+                        <p>Registros: {{ $qtd['anal'] }}</p>
                         <p class="alert-info">Passe o mouse</p>
                     </div>
-                    @foreach($fornecedor as $fc)
-                      <div class="panel-footer"><a href="#"><span class="badge">{{ $fc->nome }}</span></a></div>
+                    @foreach($analises as $anal)
+                      <div class="panel-footer"><a href="#"><span class="badge">{{ $anal->descricao }}</span></a></div>
                     @endforeach
                 </div>
             </div>
-
-            <div class="col-md-3 col-sm-4 col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-body text-center">                    
-                        <h2>Categorias</h2>
-                        <p>Registros: {{ $qtd['comp'] }}</p>
-                        <p class="alert-info">Passe o mouse</p>
-                    </div>
-                      <div class="panel-footer"><a href="#">Registros:<span class="badge">{{ count($fc->id) }}</span></a></div>
-                    
-                </div>
-            </div>
-
             
       </div>
     </div>

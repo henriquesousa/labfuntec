@@ -23,18 +23,16 @@ class HomeController extends BaseController {
 	public function index()
 	{
 
-		$categoria = Categoria::all();
-		$qtd['cat'] = count($categoria);
-		$produto = Produto::all();
-		$qtd['prod'] = count($produto);
-		$fornecedor = Fornecedor::all();
-		$qtd['forn'] = count($fornecedor);
-		$compra = Compra::all();
-		$qtd['comp'] = count($compra);
-		$funcionario = Funcionario::all();
-		$qtd['funcionario'] = count($funcionario);
+		$clientes = Cliente::all();
+		$qtd['cli'] = count($clientes);
+		$convenios = Convenio::all();
+		$qtd['conv'] = count($convenios);
+		$analises = Analise::all();
+		$qtd['anal'] = count($analises);
+		$funcionarios = Funcionario::all();
+		$qtd['fun'] = count($funcionarios);
 
-		return View::make('index', compact('categoria', 'produto', 'fornecedor', 'compra', 'funcionario', 'qtd'));
+		return View::make('index', compact('clientes', 'convenios', 'analises', 'funcionarios', 'qtd'));
 	}
 
 }

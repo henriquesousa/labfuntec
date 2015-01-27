@@ -49,7 +49,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => '127.0.0.1',
-			'database'  => 'wiver',
+			'database'  => 'labfuntec',
 			'username'  => 'root',
 			'password'  => 'henrique2008',
 			'charset'   => 'utf8',

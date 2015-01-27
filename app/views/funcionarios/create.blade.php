@@ -2,7 +2,7 @@
   
   	@section('head')
   		@parent
-  		<title>Cadastro Funcionario</title>
+  		<title>cPanel :: Cadastro Funcionario LABORATÓRIO FUNTEC</title>
 
 	    <link rel="stylesheet" href="{{ asset('css/cadastroStyle.css') }}" />
 	    <style type="text/css">
@@ -79,14 +79,7 @@
 			                    <label class="control-label">Sobrenome</label>
 			                    <input maxlength="100" type="text" name="sobrenome" required="required" class="form-control" placeholder="Moraes Neto " />
 			                </div>
-			                <div class="form-group">
-			                    <label class="control-label">RG</label>
-			                    <input maxlength="100" type="text" name="rg" required="required" class="form-control" placeholder="Entre com letras e números se existir" />
-			                </div>
-			                <div class="form-group">
-			                    <label class="control-label">CPF</label>
-			                    <input maxlength="100" type="text" name="cpf" required="required" class="form-control cpf" />
-			                </div>
+			                
 			                <!-- Multiple Radios (inline) -->
 		                    <div class="form-group">
 		                      <label class="control-label" for="genero">Sexo :</label>
@@ -102,19 +95,6 @@
 		                          
 		                      </div>
 		                    </div>
-
-
-		                    <div class="form-group">
-		                        <label for="status" class="control-label">Estado Civil</label>
-		                        
-			                        <select class="form-control" name="civil">
-									  <option value="">Selecione</option>
-									  <option value="1">Solteiro</option>
-				                      <option value="2">Casado</option>
-				                      <option value="3">Viúvo</option>  
-									</select>
-			                	
-			                </div>
 			                
 			                <div class="pull-right" >
 				                {{ HTML::linkRoute('funcionarios', 'Cancelar', array(), array('class' => 'btn btn-md btn-danger')) }}
@@ -135,7 +115,7 @@
 			                </div>
 			                <div class="form-group">
 			                    <label class="control-label">Telefone</label>
-			                    <input maxlength="200" type="text" name="phone" required="required" class="form-control phone" placeholder="Enter Company Address"  />
+			                    <input maxlength="200" type="text" name="phone" required="required" class="form-control phone" placeholder="Insira um telefone válido"  />
 			                </div>
 
 			                <div class="pull-right" >
@@ -162,6 +142,7 @@
 			                    <label class="control-label">Senha</label>
 			                    <input maxlength="200" type="password" name="password" required="required" class="form-control" placeholder="Numero e Letras são indicados"  />
 			                </div>
+			                <input type="submit" class="btn btn-success btn-md" value="Cadastrar" />
 			            </div>
 
 			            	<div class="pull-right" >

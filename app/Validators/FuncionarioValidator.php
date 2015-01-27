@@ -14,20 +14,14 @@ class FuncionarioValidator extends BaseValidator
         'create' => [
             'nome' => ['required', 'min:3'],
             'sobrenome' => ['required'],
-            'rg' => ['required'],
-            'cpf'    => ['required', 'unique:funcionarios'],
-            'civil' => ['required'],
             'username' => ['required', 'min:5', 'alpha_num', 'unique:funcionarios'],
             'password' => ['required', 'min:6'],
-            'email'    => ['required', 'email', 'unique:clientes'],
+            'email'    => ['required', 'email', 'unique:funcionarios'],
             'phone'    => ['required', 'min:13']
         ],
 
         'update' => [
             'nome' => ['required', 'min:3'],
-            'rg' => ['required'],
-            'cpf'    => ['required'],
-            'civil' => ['required'],
             'username' => ['required', 'min:5', 'alpha_num'],
             'email'    => ['required', 'email'],
             'phone'    => ['required', 'min:13'],

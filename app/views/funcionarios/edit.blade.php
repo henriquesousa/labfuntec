@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 @section('head')
   @parent
-    <title>cPanel - Funcionario Editar</title>
+    <title>cPanel :: Funcionario Editar LABORATÓRIO FUNTEC</title>
 
   @stop
 @section('conteudo')
@@ -42,22 +42,6 @@
                       </div>
                     </div>
 
-                     <!-- Text input-->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="RG">Número Identidade:</label>  
-                      <div class="col-md-5">
-                        {{ Form::text('rg', isset($funcionario->rg) ? $funcionario->rg : Input::old('rg'), array('class' => 'form-control input-md')) }}
-                      </div>
-                    </div>
-
-                     <!-- Text input-->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="CPF">Número CPF:</label>  
-                      <div class="col-md-5">
-                        {{ Form::text('cpf', isset($funcionario->cpf) ? $funcionario->cpf : Input::old('cpf'), array('class' => 'form-control input-md cpf')) }}
-                      </div>
-                    </div>
-
                     <!-- Multiple Radios (inline) -->
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="genero">Sexo :</label>
@@ -82,19 +66,6 @@
                           </label>
                           
                         @endif
-                      </div>
-                    </div>
-
-                     <!-- Select Basic -->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="civil">Estado Civil :</label>
-                      <div class="col-md-1">
-                        <select id="civil" name="civil" class="input-xlarge">
-                          <option selected value="{{ $funcionario->civil }}" >{{ $funcionario->civil }}</option>
-                          <option value="Solteiro">Solteiro</option>
-                          <option value="Casado">Casado</option>
-                          <option value="Viuvo">Viúvo</option>                    
-                        </select>
                       </div>
                     </div>
 

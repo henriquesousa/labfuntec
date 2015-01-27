@@ -2,7 +2,7 @@
 
  @section('head')
       @parent
-      <title>cPanel - Funcionarios Listar</title>
+      <title>cPanel - Funcionarios LABORATÓRIO FUNTEC</title>
       <style type="text/css">
 			.filterable {
 			    margin-top: 15px;
@@ -54,11 +54,11 @@
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                		@if(Auth::check())
+	                		
 	                			@foreach($funcionarios as $funcionario)
 
 								<tr>
-									<td>{{ $funcionario->id }}</td>
+									<td width="20px">{{ $funcionario->id }}</td>
 									<td>{{ $funcionario->nome }}</td>
 									<td>{{ isset($funcionario->email) ? $funcionario->email : '' }}</td>
 									<td class="phone">{{ $funcionario->phone }}</td>
@@ -73,7 +73,7 @@
 								</tr>
 							
 								@endforeach
-							@endif
+							
 
 	                </tbody>
 	            </table>

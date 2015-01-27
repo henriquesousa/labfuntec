@@ -28,9 +28,7 @@ class Funcionario extends Eloquent
 	// Don't forget to fill this array
 	protected $fillable = [
 		"nome",
-		"rg",
-		"cpf",
-		"civil",
+		"sexo",
 		"username",
 		"email",
 		"phone"
@@ -42,14 +40,14 @@ class Funcionario extends Eloquent
 
 	//Relacionamentos
 
-	public function venda()
+	public function recibo()
     {
-        return $this->hasMany('Venda');
+        return $this->hasMany('Recibo');
     }
 
-    public function compra()
+    public function saida()
     {
-        return $this->hasMany('Compra');
+        return $this->hasMany('Saida');
     }
 
 

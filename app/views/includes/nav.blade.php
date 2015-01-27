@@ -12,9 +12,9 @@
         <div class="animbrand">
 
             @if(Auth::check())
-              {{ HTML::link('admin/', 'LanHouse', array('class' => 'navbar-brand')) }}
+              {{ HTML::link('admin/', 'LabFUNTEC', array('class' => 'navbar-brand')) }}
             @else
-              {{ HTML::link('index', 'LanHouse', array('class' => 'navbar-brand')) }}
+              {{ HTML::link('index', 'LabFUNTEC', array('class' => 'navbar-brand')) }}
             @endif
 
         </div>

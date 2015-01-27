@@ -66,7 +66,7 @@
               </div>
               <div class="modal-footer">
                   <div class="col-md-12">
-                  <h4 class="text-center">MINOTAURE - LANHOUSE - SYSTEM LOGIN</h4>
+                  <h4 class="text-center">LAB - FUNTEC</h4>
                   </div>    
               </div>
           </div>
