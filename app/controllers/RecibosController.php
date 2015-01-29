@@ -94,7 +94,8 @@ class RecibosController extends BaseController {
 	public function show($id)
 	{
 		$recibo = Recibo::findOrFail($id);
-		return View::make('recibos.print', compact('recibo'));		
+		return View::make('recibos.print', compact('recibo'));
+
 	}
 
 	/**
@@ -160,9 +161,11 @@ class RecibosController extends BaseController {
 	public function destroy($id)
 	{
 		$recibo = Recibo::findOrFail($id);
+        $anRec = DB::table('analise_recibo')->where('recibo_id', $id)->delete();
+
 		$recibo->delete();
 
-		return Redirect::route('recibos');
+		return Redirect::to('recibo');
 	}
 
 	

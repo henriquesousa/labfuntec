@@ -30,6 +30,14 @@
 		</style>
   @stop
  @section('conteudo')
+     <!-- Exibir erros -->
+     @if (isset($errors))
+         @foreach($errors->all() as $error)
+             <div class="alert alert-danger" role="alert">
+                 {{ $error }}
+             </div>
+         @endforeach
+     @endif
 
     <div class="container col-md-12">
 	    <h3>Lista de Clientes </h3>

@@ -36,6 +36,7 @@ return array(
     'ProdutosTableSeeder' => $baseDir . '/app/database/seeds/ProdutosTableSeeder.php',
     'Recibo' => $baseDir . '/app/models/Recibo.php',
     'RecibosController' => $baseDir . '/app/controllers/RecibosController.php',
+    'RelatoriosController' => $baseDir . '/app/controllers/RelatoriosController.php',
     'Saida' => $baseDir . '/app/models/Saida.php',
     'SaidasController' => $baseDir . '/app/controllers/SaidasController.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',

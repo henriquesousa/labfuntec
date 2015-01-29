@@ -131,11 +131,22 @@ class ClientesController extends BaseController {
 	 * @return Response
 	 */
 	public function destroy($id)
-	{
-		$cliente = Cliente::findOrFail($id);
-		$cliente->delete();
+    {
 
-		return Redirect::to('cliente');
+        $recCliente = DB::table('recibos')->where('cliente_id', $id)->get();
+        $ncli = count($recCliente);
+        if ($ncli == 0)
+        {
+            $cli = Cliente::findOrFail($id);
+            $cli->delete();
+            return Redirect::to('cliente');
+        }
+        else
+        {
+            $errors['relacionado'] = "Cliente possui recibos cadastrados. Para excluir o cliente, os recibos do mesmo devem ser excluidos";
+            return Redirect::back()->withErrors($errors)->withInput();
+        }
+
 	}
 
 	

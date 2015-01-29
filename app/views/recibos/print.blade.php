@@ -175,7 +175,6 @@
 </table>
     <div class="pull-right">
         <input class="btn btn-sm btn-info" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
-        <a class="btn btn-sm btn-danger" href="{{ URL::to('recibo') }}">Voltar</a>
     </div>
 
 

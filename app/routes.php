@@ -99,6 +99,8 @@ Route::group(array('before' => 'auth'), function()
 	Route::resource('convenio', 'ConveniosController');
 	Route::resource('analise', 'AnalisesController');
 	Route::resource('saida', 'SaidasController');
+    Route::resource('recibos', 'RecibosController');
+    Route::controller('relatorio', 'RelatoriosController');
 
 	
 
