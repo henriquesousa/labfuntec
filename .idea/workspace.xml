@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0b4f20b-e987-46f9-8f08-8d0549933e63" name="Default" comment="primeiro commit" />
+    <list default="true" id="d0b4f20b-e987-46f9-8f08-8d0549933e63" name="Default" comment="primeiro commit">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/recibos/list.blade.php" afterPath="$PROJECT_DIR$/app/views/recibos/list.blade.php" />
+    </list>
     <ignored path="labfuntec.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -38,7 +40,7 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/clientes/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.0" vertical-offset="486" max-vertical-offset="2880">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="702" max-vertical-offset="2880">
               <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
               <folding />
             </state>
@@ -55,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="list.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/recibos/list.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.777778" vertical-offset="780" max-vertical-offset="2808">
-              <caret line="64" column="130" selection-start-line="64" selection-start-column="130" selection-end-line="64" selection-end-column="130" />
+            <state vertical-scroll-proportion="0.4599303" vertical-offset="888" max-vertical-offset="2808">
+              <caret line="64" column="127" selection-start-line="64" selection-start-column="127" selection-end-line="64" selection-end-column="127" />
               <folding />
             </state>
           </provider>
@@ -75,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="database.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7666099" vertical-offset="540" max-vertical-offset="1872">
+            <state vertical-scroll-proportion="-16.666666" vertical-offset="540" max-vertical-offset="1872">
               <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
               <folding />
             </state>
@@ -124,11 +126,11 @@
         <option value="$PROJECT_DIR$/app/views/recibos/pdf.blade.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/RelatoriosController.php" />
-        <option value="$PROJECT_DIR$/app/views/recibos/list.blade.php" />
         <option value="$PROJECT_DIR$/app/views/recibos/print.blade.php" />
         <option value="$PROJECT_DIR$/app/views/clientes/index.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/ClientesController.php" />
         <option value="$PROJECT_DIR$/app/controllers/RecibosController.php" />
+        <option value="$PROJECT_DIR$/app/views/recibos/list.blade.php" />
       </list>
     </option>
   </component>
@@ -866,14 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/clientes/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.0" vertical-offset="486" max-vertical-offset="2880">
-          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/recibos/print.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1533101" vertical-offset="2506" max-vertical-offset="3672">
@@ -882,18 +876,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/recibos/list.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.777778" vertical-offset="780" max-vertical-offset="2808">
-          <caret line="64" column="130" selection-start-line="64" selection-start-column="130" selection-end-line="64" selection-end-column="130" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ClientesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.925926" vertical-offset="2288" max-vertical-offset="2862">
-          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+        <state vertical-scroll-proportion="-16.666666" vertical-offset="540" max-vertical-offset="1872">
+          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -906,10 +892,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/database.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/ClientesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7666099" vertical-offset="540" max-vertical-offset="1872">
-          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+        <state vertical-scroll-proportion="-13.925926" vertical-offset="2288" max-vertical-offset="2862">
+          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/clientes/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="702" max-vertical-offset="2880">
+          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/recibos/list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4599303" vertical-offset="888" max-vertical-offset="2808">
+          <caret line="64" column="127" selection-start-line="64" selection-start-column="127" selection-end-line="64" selection-end-column="127" />
           <folding />
         </state>
       </provider>

@@ -64,7 +64,7 @@
 									<td colspan="2">
 										<a class="btn btn-info btn-xs" href="{{ URL::to('recibo/' . $recibo->id ) }}" target="main"><i class="glyphicon glyphicon-print"></i></a>
 
-                                        <!-- <a class="btn btn-info btn-xs" href="{{ URL::to('relatorio/print-pdf') }}"><i class="glyphicon glyphicon-print"></i></a> -->
+                                        <!-- <a class="btn btn-info btn-xs" href="{{ URL::to('relatorio/print-pdf') }}" ><i class="glyphicon glyphicon-print"></i></a> -->
 										
 										<a class="btn btn-primary btn-xs" href="{{ URL::to('recibo/' . $recibo->id . '/edit') }}"><i class="glyphicon glyphicon-pencil"></i></a>
 
