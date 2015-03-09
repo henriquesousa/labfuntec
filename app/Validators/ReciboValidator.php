@@ -14,9 +14,9 @@ class ReciboValidator extends BaseValidator
         'create' => [
             'cliente' => ['required'],
             'convenio' => ['required'],
-            'pagamento' => ['required'],
-            'corrego' => ['required'],
-            'cidade' => ['required'],
+            'cidade1' => ['required'],
+            'corrego1' => ['required'],
+            'analise' => ['required'],
             'status' => ['required'],
             'analise' => ['required']
         ],

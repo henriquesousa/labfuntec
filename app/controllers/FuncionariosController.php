@@ -129,7 +129,7 @@ class FuncionariosController extends BaseController {
 			$funcionario->email = Input::get("email");
 			$funcionario->phone = Input::get("phone");
 			$funcionario->username = Input::get("username");
-			$funcionario->password = Hash::make(Input::get("password"));
+			//$funcionario->password = Hash::make(Input::get("password"));
 			$funcionario->update();
 
 

@@ -1,6 +1,13 @@
-# Boris: A tiny little, but robust REPL for PHP
+# Boris
 
-![Demo](http://dl.dropbox.com/u/508607/BorisDemo-v3.gif "Quick Demo")
+A tiny, but robust REPL for PHP.
+
+> **Announcement:** I'm looking to add one or two additional collaborators with
+> commit access. If you are actively involved in open source and have a GitHub
+> profile for review, ping me on Twitter (@d11wtq) to express your interest.
+> Experienced developers with active GitHub projects only.
+
+![Demo](http://dl.dropbox.com/u/508607/BorisDemo-v4.gif "Quick Demo")
 
 Python has one. Ruby has one. Clojure has one. Now PHP has one too. Boris is
 PHP's missing REPL (read-eval-print loop), allowing developers to experiment
@@ -29,15 +36,20 @@ Boris is available for download as a Phar archive:
 
 Simply download it and run it.
 
-    curl -O https://github.com/d11wtq/boris/releases/download/v1.0.8/boris.phar
+    curl -L -O https://github.com/d11wtq/boris/releases/download/v1.0.8/boris.phar
     chmod +x boris.phar
-    ./boris.phar
+    sudo mv boris.phar /usr/local/bin/boris
 
 ### 2. Via packagist
 
 For use with composer.
 
   - https://packagist.org/packages/d11wtq/boris
+  
+Can be installed globally via:
+  
+    composer global require 'd11wtq/boris=1.0.*'
+    ~/.composer/vendor/bin/boris
 
 ### 3. Directly from this repo
 
@@ -302,5 +314,5 @@ features (the code is almost entirely dependant on POSIX).
 
 ## Copyright & Licensing
 
-Boris is written and maintained by Chris Corbyn (@d11wtq). You can use the
+Boris is maintained by [Chris Corbyn](https://github.com/d11wtq) and [Tejas Manohar](https://github.com/tejasmanohar). You can use the
 code as you see fit. See the LICENSE file for details.

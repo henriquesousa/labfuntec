@@ -17,7 +17,8 @@ class CreateReciboTable extends BaseMigration {
 			$this
 			->setTable($table)
 			->addPrimary()
-			->addDateTime("saida")			
+			->addDateTime("saida")
+            ->addString("labref")
 			->addForeign('cliente_id', 'id', 'clientes')
 			->addForeign('funcionario_id', 'id', 'funcionarios')
 			->addForeign('convenio_id', 'id', 'convenios')

@@ -49,9 +49,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => '127.0.0.1',
-			'database'  => 'admin_labfuntec',
-			'username'  => 'admin_labfuntec',
-			'password'  => 'Henrique2008@',
+			'database'  => 'labfuntec',
+			'username'  => 'root',
+			'password'  => 'henrique2008',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

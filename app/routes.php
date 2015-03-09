@@ -17,9 +17,13 @@ Route::get('/index', 'UserController@login');
 
 Route::get('/sobre', function()
 {
-	return View::make('about');
+	return View::make('site.site');
 });
 
+Route::get('/sites', function()
+{
+    return View::make('site.site');
+});
 
 /*
 | Metodos da Classe UserController
@@ -39,7 +43,7 @@ Route::get('/logout', 'UserController@logout');
 //--------------------------------------
 
 
-//Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
+//Route::group(array('prefix' => 'admin', 'before' => 'auth'), function() 'before' => 'anbu.hide'
 Route::group(array('before' => 'auth'), function()
 {
 	

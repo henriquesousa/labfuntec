@@ -4,42 +4,21 @@
       @parent
       <title>cPanel :: Recibos LABORATÓRIO FUNTEC</title>
       <style type="text/css">
-			.filterable {
-			    margin-top: 15px;
-			}
-			.filterable .panel-heading .pull-right {
-			    margin-top: -20px;
-			}
-			.filterable .filters input[disabled] {
-			    background-color: transparent;
-			    border: none;
-			    cursor: auto;
-			    box-shadow: none;
-			    padding: 0;
-			    height: auto;
-			}
-			.filterable .filters input[disabled]::-webkit-input-placeholder {
-			    color: #333;
-			}
-			.filterable .filters input[disabled]::-moz-placeholder {
-			    color: #333;
-			}
-			.filterable .filters input[disabled]:-ms-input-placeholder {
-			    color: #333;
-			}
+
           .compact, tbody, tr, td {
+              font-size: 12px;
               height: 5px;
-              padding-top: 0px;
-              padding-bottom: 0px;
-              border-bottom: 0px;
-              border-top: 0px;
+              padding: 0px;
+              border: 0px;
           }
           tr, td {
               height: 5px;
-              padding-top: 0px;
-              padding-bottom: 0px;
-              border-bottom: 0px;
-              border-top: 0px;
+              padding: 0px;
+              border: 0px;
+
+          }
+          tbody tr {
+              height: 7px;
           }
           .itens {
               border-bottom: dotted 1px #000000;
@@ -62,117 +41,149 @@
             <td colspan="4">&nbsp;</td>
         </tr>
         <tr>
-            <td><h6><b>Recebemos de:</b></h6></td>
-            <td><h6>{{ $recibo->cliente->nome }}</h6></td>
-            <td><h6><b>CPF:</b></h6></td>
-            <td><h6>{{ $recibo->cliente->cpf }}</h6></td>
+            <td><b>Recebemos de:</b></td>
+            <td>{{ $recibo->cliente->nome }}</td>
+            <td><b>CPF:</b></td>
+            <td>{{ $recibo->cliente->cpf }}</td>
 
         </tr>
         <tr>
-            <td><h6><b>Endereço:</b></h6></td>
-            <td colspan="3"><h6>{{ $recibo->corrego }} - {{ $recibo->cidade }} MG</h6></td>
+            <td><b>Endereço:</b></td>
+            <td colspan="3">{{ $recibo->corrego }} - {{ $recibo->cidade }} MG</td>
         </tr>
         <tr>
-            <td><h6><b>Convênio:</b></h6></td>
-            <td><h6>{{ $recibo->convenio->nome }}</h6></td>
-            <td><h6><b>Entrega:</b></h6></td>
-            <td><h6>{{ date('d/m/y', strtotime($recibo->saida)) }}</h6></td>
+            <td><b>Convênio:</b></td>
+            <td>{{ $recibo->convenio->nome }}</td>
+            <td><b>Entrega:</b></td>
+            <td>{{ date('d/m/y', strtotime($recibo->saida)) }}</td>
         </tr>
-        <tr>
-            <td colspan="3"><h6><b>Referente a:</b></h6></td>
-            <td><h6><b>R$</b></h6></td>
+        <tr style="border-top: 2px #000000 solid">
+            <td colspan="4"><b>Referente a:</b></td>
         </tr>
 
-        @foreach($recibo->analise as $analise)
-            <tr class="itens">
-                <td colspan="3"><h6> {{ $analise->descricao }}</h6></td>
-                <td class="valor"><h6> {{ $analise->valor}}</h6></td>
-            </tr>
-        @endforeach
+        <tr>
+            <td colspan="4">
+
+                <table class="analise" style="width:80%; margin-left:20px;">
+
+                    <tr>
+                        <th>Gleba</th>
+                        <th>Analise</th>
+                        <th>Valor $</th>
+                    </tr>
+                    @foreach($recibo->analise as $analise)
+                        <tr class="itens">
+                            <td>{{ $analise->pivot->gleba }}</td>
+                            <td> {{ $analise->descricao }}</td>
+                            <td class="valor">{{ $analise->valor}}</td>
+                        </tr>
+                    @endforeach
+
+                </table>
+
+            </td>
+        </tr>
+
         <tr>
             <td colspan="4">&nbsp;</td>
         </tr>
-        <tr>
-            <td><h6><b>Emitente:</b></h6></td>
-            <td colspan="3"><h6>LABORATÒRIO DE ANALISE DE SOLOS - FUNTEC</h6></td>
+        <tr style="border-top: 2px #000000 solid">
+            <td><b>Emitente:</b></td>
+            <td colspan="3">LABORATÓRIO DE ANALISE DE SOLOS - FUNTEC</td>
 
         </tr>
         <tr>
-            <td><h6><b>Endereço:</b></h6></td>
-            <td><h6>BR-116 KM526 - Bairro das Graças - Caratinga MG</h6></td>
-            <td><h6><b>Telefone:</b></h6></td>
-            <td><h6>(33) 3321 - 1959</h6></td>
+            <td><b>Endereço:</b></td>
+            <td>BR-116 KM526 - Bairro das Graças - Caratinga MG</td>
+            <td><b>Telefone:</b></td>
+            <td>(33) 3321 - 1959</td>
 
         </tr>
         <tr>
-            <td><h6><b>Funcionario:</b></h6></td>
-            <td colspan="3"><h6>{{ $recibo->funcionario->nome }}</h6></td>
+            <td><b>Funcionario:</b></td>
+            <td colspan="3">{{ $recibo->funcionario->nome }}</td>
         </tr>
         </tbody>
     </table>
-
-<hr/>
 <br/>
-<table class="compact">
-    <tbody>
-		<tr>
-			<td><h3><small><b>Data: </b> {{ date('d/m/y', strtotime($recibo->created_at)) }}</small></h3></td>
-			<td style="width: 350px;"><h2 class="text-center"><u>Recibo</u></h2></td>
-			<td></td>
-			<td></td>
-		</tr>
+<hr/>
+
+    <table class="compact">
+        <tbody>
+        <tr>
+            <td><h3><small><b>Data: </b> {{ date('d/m/y', strtotime($recibo->created_at)) }}</small></h3></td>
+            <td style="width: 350px;"><h2 class="text-center"><u>Recibo</u></h2></td>
+            <td></td>
+            <td></td>
+        </tr>
         <tr>
             <td colspan="4">&nbsp;</td>
         </tr>
-		<tr>
-			<td><h6><b>Recebemos de:</b></h6></td>
-			<td><h6>{{ $recibo->cliente->nome }}</h6></td>
-			<td><h6><b>CPF:</b></h6></td>
-			<td><h6>{{ $recibo->cliente->cpf }}</h6></td>
-							
-		</tr>
-		<tr>
-			<td><h6><b>Endereço:</b></h6></td>
-			<td colspan="3"><h6>{{ $recibo->corrego }} - {{ $recibo->cidade }} MG</h6></td>
-		</tr>
         <tr>
-            <td><h6><b>Convênio:</b></h6></td>
-            <td><h6>{{ $recibo->convenio->nome }}</h6></td>
-            <td><h6><b>Entrega:</b></h6></td>
-            <td><h6>{{ date('d/m/y', strtotime($recibo->saida)) }}</h6></td>
+            <td><b>Recebemos de:</b></td>
+            <td>{{ $recibo->cliente->nome }}</td>
+            <td><b>CPF:</b></td>
+            <td>{{ $recibo->cliente->cpf }}</td>
+
         </tr>
         <tr>
-            <td colspan="3"><h6><b>Referente a:</b></h6></td>
-            <td><h6><b>R$</b></h6></td>
+            <td><b>Endereço:</b></td>
+            <td colspan="3">{{ $recibo->corrego }} - {{ $recibo->cidade }} MG</td>
+        </tr>
+        <tr>
+            <td><b>Convênio:</b></td>
+            <td>{{ $recibo->convenio->nome }}</td>
+            <td><b>Entrega:</b></td>
+            <td>{{ date('d/m/y', strtotime($recibo->saida)) }}</td>
+        </tr>
+        <tr style="border-top: 2px #000000 solid">
+            <td colspan="4"><b>Referente a:</b></td>
         </tr>
 
-            @foreach($recibo->analise as $analise)
-                <tr class="itens">
-                    <td colspan="3"><h6> {{ $analise->descricao }}</h6></td>
-                    <td class="valor"><h6> {{ $analise->valor}}</h6></td>
-                </tr>
-            @endforeach
+        <tr>
+            <td colspan="4">
+
+                <table class="analise" style="width:80%; margin-left:20px;">
+
+                        <tr>
+                            <th>Gleba</th>
+                            <th>Analise</th>
+                            <th>Valor $</th>
+                        </tr>
+                    @foreach($recibo->analise as $analise)
+                        <tr class="itens">
+                            <td>{{ $analise->pivot->gleba }}</td>
+                            <td> {{ $analise->descricao }}</td>
+                            <td class="valor">{{ $analise->valor}}</td>
+                        </tr>
+                    @endforeach
+
+                 </table>
+
+            </td>
+        </tr>
+
         <tr>
             <td colspan="4">&nbsp;</td>
         </tr>
-		<tr>
-			<td><h6><b>Emitente:</b></h6></td>
-			<td colspan="3"><h6>LABORATÒRIO DE ANALISE DE SOLOS - FUNTEC</h6></td>
+        <tr style="border-top: 2px #000000 solid">
+            <td><b>Emitente:</b></td>
+            <td colspan="3">LABORATÓRIO DE ANALISE DE SOLOS - FUNTEC</td>
 
-		</tr>
-		<tr>
-            <td><h6><b>Endereço:</b></h6></td>
-            <td><h6>BR-116 KM526 - Bairro das Graças - Caratinga MG</h6></td>
-			<td><h6><b>Telefone:</b></h6></td>
-			<td><h6>(33) 3321 - 1959</h6></td>
+        </tr>
+        <tr>
+            <td><b>Endereço:</b></td>
+            <td>BR-116 KM526 - Bairro das Graças - Caratinga MG</td>
+            <td><b>Telefone:</b></td>
+            <td>(33) 3321 - 1959</td>
 
-		</tr>
-		<tr>
-			<td><h6><b>Funcionario:</b></h6></td>
-			<td colspan="3"><h6>{{ $recibo->funcionario->nome }}</h6></td>
-		</tr>
-	</tbody>
-</table>
+        </tr>
+        <tr>
+            <td><b>Funcionario:</b></td>
+            <td colspan="3">{{ $recibo->funcionario->nome }}</td>
+        </tr>
+        </tbody>
+    </table>
     <div class="pull-right">
         <input class="btn btn-sm btn-info" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
     </div>

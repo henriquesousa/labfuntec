@@ -1,6 +1,6 @@
 <?php
 
-class Analise extends \Eloquent {
+class Analise extends Eloquent {
 	protected $softDelete = true;
 
 	public $timestamps = false;
@@ -21,6 +21,6 @@ class Analise extends \Eloquent {
 
 	public function recibo()
 	{
-		return $this->belongsToMany('Recibo', 'analise_recibo');
+		return $this->belongsToMany('Recibo')->withPivot('gleba');
 	}
 }

@@ -28,56 +28,56 @@
     <div class="container conteudo">
       <div class="row">
         <div class="col-md-3 col-sm-4 col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-body text-center">                    
-                        <h2>Funcionarios</h2>
-                        <p>Registros: {{ $qtd['fun'] }}</p>
-                        <p class="alert-info">Passe o mouse</p>
-                    </div>
-                    @foreach($funcionarios as $fc)
-                      <div class="panel-footer"><a href="#"><span class="badge">{{ $fc->nome }}</span></a></div>
-                    @endforeach
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <h2>Funcionarios</h2>
+                    <p>Registros: {{ $qtd['fun'] }}</p>
+                    <p class="alert-info">Passe o mouse</p>
                 </div>
+                @foreach($funcionarios as $fc)
+                    <div class="panel-footer"><a href="#"><span class="badge">{{ $fc->nome }}</span></a></div>
+                @endforeach
             </div>
+        </div>
 
-            <div class="col-md-3 col-sm-4 col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-body text-center">                    
-                        <h2>Clientes</h2>
-                        <p>Registros: {{ $qtd['cli'] }}</p>
-                        <p class="alert-info">Passe o mouse</p>
-                    </div>
-                    @foreach($clientes as $cli)
-                      <div class="panel-footer"><a href="#"><span class="badge">{{ $cli->nome }}</span></a></div>
-                    @endforeach
+        <div class="col-md-3 col-sm-4 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <h2>Clientes</h2>
+                    <p>Registros: {{ $qtd['cli'] }}</p>
+                    <p class="alert-info">Passe o mouse</p>
                 </div>
+                @foreach($clientes as $cli)
+                      <div class="panel-footer"><a href="#"><span class="badge">{{ $cli->nome }}</span></a></div>
+                @endforeach
+            </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3 col-sm-4 col-xs-12">
+              <div class="panel panel-default">
+                  <div class="panel-body text-center">
+                      <h2>Convênios</h2>
+                      <p>Registros: {{ $qtd['conv'] }}</p>
+                      <p class="alert-info">Passe o mouse</p>
+                  </div>
+                  @foreach($convenios as $conv)
+                      <div class="panel-footer"><a href="#"><span class="badge">{{ $conv->nome }}</span></a></div>
+                  @endforeach
+              </div>
+          </div>
+          <div class="col-md-3 col-sm-4 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <h2>Analises</h2>
+                    <p>Registros: {{ $qtd['anal'] }}</p>
+                    <p class="alert-info">Passe o mouse</p>
+                </div>
+                @foreach($analises as $anal)
+                    <div class="panel-footer"><a href="#"><span class="badge">{{ $anal->descricao }}</span></a></div>
+                @endforeach
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-3 col-sm-4 col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-body text-center">                    
-                        <h2>Convênios</h2>
-                        <p>Registros: {{ $qtd['conv'] }}</p>
-                        <p class="alert-info">Passe o mouse</p>
-                    </div>
-                    @foreach($convenios as $conv)
-                      <div class="panel-footer"><a href="#"><span class="badge">{{ $conv->nome }}</span></a></div>
-                    @endforeach
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-body text-center">                    
-                        <h2>Analises</h2>
-                        <p>Registros: {{ $qtd['anal'] }}</p>
-                        <p class="alert-info">Passe o mouse</p>
-                    </div>
-                    @foreach($analises as $anal)
-                      <div class="panel-footer"><a href="#"><span class="badge">{{ $anal->descricao }}</span></a></div>
-                    @endforeach
-                </div>
-            </div>
             
       </div>
     </div>

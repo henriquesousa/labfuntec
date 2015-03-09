@@ -1,6 +1,6 @@
 <?php
 
-class Recibo extends \Eloquent {
+class Recibo extends Eloquent {
 
 	protected $softDelete = true;
 
@@ -24,11 +24,16 @@ class Recibo extends \Eloquent {
 	];
 
 
+    public function scopeGetCliente($query, $type)
+    {
+        return $query->whereType($type);
+    }
+
 	//Relacionamentos
 
 	public function analise()
 	{
-		return $this->belongsToMany('Analise', 'analise_recibo');
+		return $this->belongsToMany('Analise')->withPivot('gleba');
 	}
 
 	public function cliente()
@@ -45,4 +50,9 @@ class Recibo extends \Eloquent {
 	{
 		return $this->belongsTo('Funcionario');
 	}
+
+    public function endereco()
+    {
+        return $this->hasMany('Endereco');
+    }
 }

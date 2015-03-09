@@ -19,7 +19,7 @@ class CreateAnaliseReciboTable extends BaseMigration {
 			->addPrimary()	
 			->addForeign('analise_id', 'id', 'analises')
 			->addForeign('recibo_id', 'id', 'recibos')
-			->addTimestamps();
+            ->addInteger('gleba');
 		});
 	}
 

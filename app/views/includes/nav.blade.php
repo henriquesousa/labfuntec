@@ -30,13 +30,7 @@
               {{ HTML::link('index', 'Home') }} 
             @endif
           </li>
-          <li class="dropdown ">
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Cadastros <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li>{{ HTML::linkRoute('funcionario_add', 'Funcionários') }}</li>
-            </ul>
-          </li>
-         <li>{{ HTML::link('sobre', 'Sobre') }}</li>
+
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
