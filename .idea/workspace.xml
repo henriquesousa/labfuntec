@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0b4f20b-e987-46f9-8f08-8d0549933e63" name="Default" comment="primeiro commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Pdf/AbstractRelatorio.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Pdf/Cliente.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Pdf/Convenio.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/Queries.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Pdf/Saida.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/relatorios/teste.blade.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Analise.php" afterPath="$PROJECT_DIR$/app/models/Analise.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ClientesController.php" afterPath="$PROJECT_DIR$/app/controllers/ClientesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Recibo.php" afterPath="$PROJECT_DIR$/app/models/Recibo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/RecibosController.php" afterPath="$PROJECT_DIR$/app/controllers/RecibosController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Pdf/RelatorioPdf.php" afterPath="$PROJECT_DIR$/app/Pdf/RelatorioPdf.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/RelatoriosController.php" afterPath="$PROJECT_DIR$/app/controllers/RelatoriosController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/includes/adminSidebar.blade.php" afterPath="$PROJECT_DIR$/app/views/includes/adminSidebar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/autoload.php" afterPath="$PROJECT_DIR$/vendor/autoload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/analises/create.blade.php" afterPath="$PROJECT_DIR$/app/views/analises/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/recibos/create.blade.php" afterPath="$PROJECT_DIR$/app/views/recibos/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/recibos/edit.blade.php" afterPath="$PROJECT_DIR$/app/views/recibos/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/relatorios/index.blade.php" afterPath="$PROJECT_DIR$/app/views/relatorios/index.blade.php" />
+    <list default="true" id="d0b4f20b-e987-46f9-8f08-8d0549933e63" name="Default" comment="relatorios pdf">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="labfuntec.iws" />
@@ -73,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cliente.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Cliente.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Pdf/Cliente.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1533101" vertical-offset="1118" max-vertical-offset="6282">
-              <caret line="67" column="62" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
+            <state vertical-scroll-proportion="-3.2592592" vertical-offset="1118" max-vertical-offset="6282">
+              <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
               <folding>
                 <element signature="e#22#52#0#PHP" expanded="true" />
               </folding>
@@ -97,6 +76,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="RelatorioPdf.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Pdf/RelatorioPdf.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1602">
+              <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Saida.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Pdf/Saida.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -110,6 +99,11 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="henrique" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -610,6 +604,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32919255" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24942617" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -619,7 +614,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976282" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -641,7 +635,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="primeiro commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="primeiro commit" />
+    <MESSAGE value="relatorios pdf" />
+    <option name="LAST_COMMIT_MESSAGE" value="relatorios pdf" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -836,6 +831,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.912892" vertical-offset="1134" max-vertical-offset="4680">
           <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -968,14 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Pdf/RelatorioPdf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1602">
-          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.074074" vertical-offset="1339" max-vertical-offset="1926">
@@ -1033,11 +1021,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Pdf/Cliente.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1533101" vertical-offset="1118" max-vertical-offset="6282">
-          <caret line="67" column="62" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
+        <state vertical-scroll-proportion="-3.2592592" vertical-offset="1118" max-vertical-offset="6282">
+          <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
           <folding>
             <element signature="e#22#52#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Pdf/RelatorioPdf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1602">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
