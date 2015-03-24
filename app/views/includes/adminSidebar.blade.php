@@ -10,7 +10,6 @@
   <li><a href="{{ URL::to('analise') }}"> <i class="glyphicon glyphicon-barcode"></i> Analises</a> </li>
   <li><a href="{{ URL::to('saida') }}"><i class="glyphicon glyphicon-shopping-cart"></i> Saidas</a></li>
   <li><a href="{{ URL::to('recibo') }}"><i class="glyphicon glyphicon-shopping-cart"></i> Recibos</a></li>
-    <!--<li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Relatorios</a></li>-->
-   <li><a href="{{ URL::to('relatorio') }}"><i class="glyphicon glyphicon-list-alt"></i> Relatorios</a></li>
+  <li><a href="{{ URL::to('relatorio') }}"><i class="glyphicon glyphicon-list-alt"></i> Relatorios</a></li>
 
 </ul>
