@@ -33,7 +33,7 @@ class Recibo extends Eloquent {
 
 	public function analise()
 	{
-		return $this->belongsToMany('Analise')->withPivot('gleba');
+		return $this->belongsToMany('Analise')->withPivot('gleba')->orderBy('gleba', 'asc');
 	}
 
 	public function cliente()

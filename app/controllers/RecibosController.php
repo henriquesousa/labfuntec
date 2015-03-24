@@ -249,5 +249,6 @@ class RecibosController extends BaseController {
         return Response::make($fPdf->Output(), 200, $headers);
     }
 
+
 	
 }

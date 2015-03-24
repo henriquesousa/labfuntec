@@ -1,152 +1,226 @@
- @extends('layouts.dashboard')
+@extends('layouts.dashboard')
+@section('head')
+    @parent
+    <title>cPanel :: Adicionar Convênio  LABORATÓRIO FUNTEC</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+@stop
+@section('conteudo')
 
- @section('head')
-      @parent
-      <title>cPanel - Pedidos Editar</title>
-      <style type="text/css">
-      .filterable {
-          margin-top: 15px;
-      }
-      .filterable .panel-heading .pull-right {
-          margin-top: -20px;
-      }
-      .filterable .filters input[disabled] {
-          background-color: transparent;
-          border: none;
-          cursor: auto;
-          box-shadow: none;
-          padding: 0;
-          height: auto;
-      }
-      .filterable .filters input[disabled]::-webkit-input-placeholder {
-          color: #333;
-      }
-      .filterable .filters input[disabled]::-moz-placeholder {
-          color: #333;
-      }
-      .filterable .filters input[disabled]:-ms-input-placeholder {
-          color: #333;
-      }
-    </style>
-  @stop
- @section('conteudo')
+    <!-- Exibir erros -->
+    @if (isset($errors))
+        @foreach($errors->all() as $error)
+            <div class="alert alert-danger" role="alert">
+                {{ $error }}
+            </div>
+        @endforeach
+    @endif
 
-    <div class="container col-md-12">
-      <h3>Lista de Pedido da Compras {{ $compra }}{{ HTML::linkRoute('compras', 'Voltar', array(), array('class' => 'btn btn-sm btn-danger pull-right')) }}</h3>
+    <div class="table">
+        {{ Form::open([
+          "url" => "recibo",
+          "autocomplete" => "on",
+          "class" => "form-horizontal"
+        ]) }}
 
-      <hr>
-      
-      <div class="row">
-          <div class="panel panel-primary filterable">
-              <div class="panel-heading">
-                  <h3 class="panel-title">Peido</h3>
-                  <div class="pull-right">
-                    <a href="{{ URL::route('pedido_padd', $compra) }}" class="btn btn-success btn-xs add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Adicionar</a>
-                      <button class="btn btn-default btn-xs btn-filter "><span class="glyphicon glyphicon-filter"></span> Filter</button>
-                  </div>
-              </div>
-              <table class="table " id="mytable" >
-                  <thead>
-                      <tr class="filters ">
-                          <th><input type="text" class="form-control" placeholder="#" disabled></th>
-                          <th><input type="text" class="form-control" placeholder="Produto" disabled></th>
-                          <th><input type="text" class="form-control" placeholder="Quantidade" disabled></th>
-                          <th><input type="text" class="form-control" placeholder="Valor Unit" disabled></th>
-                          <th colspan="2">Ações</th>
-                      </tr>
-                  </thead>
-                  <tbody>
+        <!-- Form Name -->
+        <h3>Adicionar Recibo </h3>
 
-                        @foreach($pedido as $pd)
+        <div class="panel panel-primary"><!-- painel-->
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">Dados Cadastrais</h3>
+            </div>
+            <div class="panel-body" align="center">
 
-                
+                <div class="form-group col-md-12">
+                    <label class="col-md-3 control-label" for="cliente">Cliente:</label>
+                    <div class="input-group col-md-5">
 
-                      <tr >
-                        <td>{{ $pd->id }}</td>
-                        <td>{{ $pd->produto->descricao }}</td>
-                        <td>{{ $pd->quantidade }}</td>
-                        <td>{{ $pd->valor_unit }}</td>
-                      
-                      
-                        <td>
-                          {{ HTML::linkRoute('compra_pedit', 'Edit', array($pd->id), array('class' => 'btn btn-primary btn-xs')) }}
-                        </td>
-                        <td>
-                          {{ HTML::linkRoute('compra_pdelete', 'Excl', array($pd->id), array('class' => 'btn btn-danger btn-xs')) }}
-                        </td>               
-                      </tr>
-                    
-                      @endforeach
+                        <select name="cliente" class="form-control">
+                            <option value="">Selecione...</option>
+                            @foreach ($clientes as $cliente)
+                                <option value="{{ $cliente->id }}">{{ $cliente->nome }}</option>
+                            @endforeach
+                        </select>
 
-                 
-                    
+                        <div class="input-group-btn">
+                            <a class="btn btn-sm btn-success pull-right" href="{{ URL::to('cliente/create') }}"><i class="glyphicon glyphicon-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
 
-                  </tbody>
-              </table>
+                <div class="form-group col-md-12">
+                    <label class="col-md-3 control-label" for="LabRef">LabRef:</label>
+                    <div class="col-md-5">
+                        {{ Form::text('labref', Input::old('labref'), array('class' => 'form-control input-md', 'placeholder' => 'código da análise')) }}
+                    </div>
+                </div>
 
-          </div>
-          {{ '<span class="badge pull-right">Registros '.$qtd.'</span>' .$pedido->links()  }}
-      </div>
-  </div>
+                <div class="form-group col-md-12">
+                    <label class="col-md-3 control-label" for="convenio">Convênio:</label>
+                    <div class="input-group col-md-5">
 
+                        <select name="convenio" class="form-control">
+                            <option value="">Selecione...</option>
+                            @foreach ($convenios as $convenio)
+                                <option value="{{ $convenio->id }}">{{ $convenio->nome }}</option>
+                            @endforeach
+                        </select>
+
+                        <div class="input-group-btn">
+                            <a class="btn btn-sm btn-success pull-right" href="{{ URL::to('convenio/create') }}"><i class="glyphicon glyphicon-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group col-md-12">
+                    <label class="col-md-3 control-label" for="Pagamento">Pagamento:</label>
+                    <div class="input-group col-md-5">
+                        {{ Form::radio('pagamento', '1') }} sim
+                        {{ Form::radio('pagamento', '2') }}não
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label class="col-md-3 control-label" for="status">Sattus:</label>
+                    <div class="input-group col-md-5">
+
+                        <select name="status" class="form-control">
+                            <option >Selecione...</option>
+                            <option value="1">Andamento</option>
+                            <option value="2">Concluido</option>
+                        </select>
+
+                    </div>
+                </div>
+
+
+                <div id="tabs" class="col-md-12" align="center">
+                    <ul class="info">
+                        <li><a href="#tabs-1">Gleba 1</a></li>
+                        <li><a href="#tabs-2">Gleba 2</a></li>
+                        <li><a href="#tabs-3">Gleba 3</a></li>
+                    </ul>
+                    <div id="tabs-1">
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="Corrego">Córrego</label>
+                            <div class="col-md-6">
+                                {{ Form::text('corrego1', isset($convenio->corrego) ? $convenio->corrego : Input::old('corrego1'), array('class' => 'form-control input-md')) }}
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="Cidade">Cidade</label>
+                            <div class="col-md-6">
+                                {{ Form::text('cidade1', isset($convenio->cidade) ? $convenio->cidade : Input::old('cidade1'), array('class' => 'form-control input-md')) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="cliente">Analises:</label>
+                            <div class="input-group col-md-6">
+                                @foreach ($analises as $analise)
+                                    {{ Form::checkbox('analise[1][]', $analise->id, false) }} {{ $analise->descricao }}
+                                @endforeach
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tabs-2">
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="Corrego">Córrego</label>
+                            <div class="col-md-6">
+                                {{ Form::text('corrego2', isset($convenio->corrego) ? $convenio->corrego : Input::old('corrego2'), array('class' => 'form-control input-md')) }}
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="Cidade">Cidade</label>
+                            <div class="col-md-6">
+                                {{ Form::text('cidade2', isset($convenio->cidade) ? $convenio->cidade : Input::old('cidade2'), array('class' => 'form-control input-md')) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="cliente">Analises:</label>
+                            <div class="input-group col-md-6">
+                                @foreach ($analises as $analise)
+                                    {{ Form::checkbox('analise[2][]', $analise->id, false) }} {{ $analise->descricao }}
+                                @endforeach
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tabs-3">
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="Corrego">Córrego</label>
+                            <div class="col-md-6">
+                                {{ Form::text('corrego3', isset($convenio->corrego) ? $convenio->corrego : Input::old('corrego3'), array('class' => 'form-control input-md')) }}
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="Cidade">Cidade</label>
+                            <div class="col-md-6">
+                                {{ Form::text('cidade3', isset($convenio->cidade) ? $convenio->cidade : Input::old('cidade3'), array('class' => 'form-control input-md')) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="cliente">Analises:</label>
+                            <div class="input-group col-md-6">
+                                @foreach ($analises as $analise)
+                                    {{ Form::checkbox('analise[3][]', $analise->id, false) }} {{ $analise->descricao }}
+                                @endforeach
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- /painel -->
+
+
+        <!-- Button (Double) -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="cadastrar"></label>
+            <div class="col-md-8">
+                <input type="submit" value="Adicionar" class="btn btn-primary btn-sm" />
+                <a class="btn btn-sm btn-danger" href="{{ URL::to('recibo') }}">Cancelar</a>
+            </div>
+        </div>
+
+
+
+
+        {{ Form::close() }}
+    </div><!-- /table -->
 
 @stop
-
 @section('scripts')
 
-<script type="text/javascript">
-      /*
-      Please consider that the JS part isn't production ready at all, I just code it to show the concept of merging filters and titles together !
-      */
-      $(document).ready(function(){
-          
-          //mascara para exibição jquery
-          $('.phone').mask('(00) 0000-0000');
-          
-
-          $('.filterable .btn-filter').click(function(){
-            var $panel = $(this).parents('.filterable'),
-              $filters = $panel.find('.filters input'),
-              $tbody = $panel.find('.table tbody');
-              if ($filters.prop('disabled') == true) {
-                  $filters.prop('disabled', false);
-                  $filters.first().focus();
-              } else {
-                  $filters.val('').prop('disabled', true);
-                  $tbody.find('.no-result').remove();
-                  $tbody.find('tr').show();
-              }
-          });
-
-          $('.filterable .filters input').keyup(function(e){
-              /* Ignore tab key */
-              var code = e.keyCode || e.which;
-              if (code == '9') return;
-              /* Useful DOM data and selectors */
-              var $input = $(this),
-              inputContent = $input.val().toLowerCase(),
-              $panel = $input.parents('.filterable'),
-              column = $panel.find('.filters th').index($input.parents('th')),
-              $table = $panel.find('.table'),
-              $rows = $table.find('tbody tr');
-              /* Dirtiest filter function ever ;) */
-              var $filteredRows = $rows.filter(function(){
-                  var value = $(this).find('td').eq(column).text().toLowerCase();
-                  return value.indexOf(inputContent) === -1;
-              });
-              /* Clean previous no-result if exist */
-              $table.find('tbody .no-result').remove();
-              /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
-              $rows.show();
-              $filteredRows.hide();
-              /* Prepend no-result row if all rows are filtered */
-              if ($filteredRows.length === $rows.length) {
-                  $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
-              }
-          });
-
-
-      });
-
+    <script type="text/javascript">
+        $(function() {
+            $( "#tabs" ).tabs({
+                event: "mouseover"
+            });
+        });
+        $(document).ready(function(){
+            //mascara para exibição jquery
+            $('.valor').mask('00.00');
+            $('.data').mask('000.000.000-00');
+        });
     </script>
 @stop

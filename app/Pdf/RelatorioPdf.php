@@ -1,6 +1,4 @@
-<?php
-
-namespace Pdf;
+<?php namespace Pdf;
 
 use Anouar\Fpdf\Fpdf;
 
@@ -10,7 +8,7 @@ class RelatorioPdf extends Fpdf {
         global $codigo; // EXEMPLO DE UMA VARIAVEL QUE TERÁ O MESMO VALOR EM QUALQUER ÁREA DO PDF.
         $l=5; // DEFINI ESTA VARIAVEL PARA ALTURA DA LINHA
         $this->SetXY(10,10); // SetXY - DEFINE O X E O Y NA PAGINA
-        $this->Rect(10,10,190,280); // CRIA UM RETÂNGULO QUE COMEÇA NO X = 10, Y = 10 E
+        $this->Rect(10,10,190,270); // CRIA UM RETÂNGULO QUE COMEÇA NO X = 10, Y = 10 E
         //TEM 190 DE LARGURA E 280 DE ALTURA.
         //NESTE CASO, É UMA BORDA DE PÁGINA.
 
@@ -40,35 +38,17 @@ class RelatorioPdf extends Fpdf {
         $l = 17;
         $this->SetFont('Arial','B',12);
         $this->SetXY(10,30);
-        $this->Cell(190,$l,utf8_decode('Relatório - Convenido'),'B',1,'C');
-
-        $l=7;
-        $this->SetFont('Arial','B',10);
-        $this->Cell(20,$l,'CONVENIO:',0,0,'L');
-        $this->Cell(100,$l,'','B',0,'L');
-        $this->Cell(35,$l,'',0,0,'L');
-        $this->Cell(15,$l,'DATA:',0,0,'L');
-        $this->Cell(20,$l,date('d/m/Y'),'B',0,'L'); // INSIRO A DATA CORRENTE NA CELULA
-        $this->Ln();
-        //FINAL DO CABECALHO COM DADOS
-        //ABAIXO É CRIADO O TITULO DA TABELA DE DADOS
+        $this->Cell(190,$l,utf8_decode('LAB-FUNTEC'),'B',1,'C');
 
         $this->Cell(190,2,'',0,0,'C');
         //ESPAÇAMENTO DO CABECALHO PARA A TABELA
         $this->Ln();
-
-        $this->SetTextColor(255,255,255);
-        $this->Cell(190,$l,'Titulo 1',1,0,'C',1);
-        $this->Ln();
-
-
-
     }
 
     function Footer(){ // CRIANDO UM RODAPE
 
-        $this->SetXY(15,272);
-        $this->Rect(10,280,190,10);
+        $this->SetXY(15,262);
+        $this->Rect(10,270,190,10);
         $this->Ln();
         $this->SetFont('Arial','',7);
         $this->Cell(150,15,utf8_decode('Página '.$this->PageNo().' de {nb}'),0,0,'C');

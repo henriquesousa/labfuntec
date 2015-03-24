@@ -1,6 +1,7 @@
 <?php
 
 use Validators\ClienteValidator as ClienteValidator;
+use Pdf\Cliente as rCli;
 
 class ClientesController extends BaseController {
 
@@ -148,6 +149,11 @@ class ClientesController extends BaseController {
         }
 
 	}
+
+    public function getTeste()
+    {
+        return 'teste';
+    }
 
 	
 }

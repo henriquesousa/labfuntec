@@ -219,7 +219,7 @@
       });
       $(document).ready(function(){
         //mascara para exibição jquery
-          $('.valo').mask('00.00');
+          $('.valor').mask('00.00');
           $('.data').mask('000.000.000-00');
       });
   </script>

@@ -23,4 +23,5 @@ class Analise extends Eloquent {
 	{
 		return $this->belongsToMany('Recibo')->withPivot('gleba');
 	}
+
 }

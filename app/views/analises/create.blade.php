@@ -75,7 +75,7 @@
       */
       $(document).ready(function(){
         //mascara para exibição jquery
-          $('.telefone').mask('(00) 0000-0000');
+          $('.valor').mask('00.00');
           $('.cpf').mask('000.000.000-00');
       });
   </script>
