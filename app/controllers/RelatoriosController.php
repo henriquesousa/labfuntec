@@ -142,7 +142,11 @@ class RelatoriosController extends BaseController
         }
         if($mes == 0 and $nome == '')
         {
-            return $this->getAllRelatoriosCliente();
+            $recibos = \Recibo::all();
+            $analiseV = \Analise::all();
+
+            return Cli::getRelatorioAllClientes($recibos, $analiseV);
+//            return $this->getAllRelatoriosCliente();
         }
     }
 
