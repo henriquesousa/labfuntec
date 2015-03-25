@@ -123,11 +123,7 @@ class Cliente extends RelatorioPdf
                 $completa = $analise->pivot->orWhereIn('analise_id', [3])->count();
                 $diferenciada = $analise->pivot->orWhereIn('analise_id', [4])->count();
                 //counts />
-
-
             }
-
-
         }
 
         $tot = ($quimica * $analiseV[0]['valor']) + ($fisica * $analiseV[1]['valor']) + ($completa * $analiseV[2]['valor']) + ($diferenciada * $analiseV[3]['valor']);
