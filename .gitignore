@@ -1,6 +1,5 @@
 app/config/database.php
 app/config/local
-/vendor
 /bootstrap/compiled.php
 composer.phar
 composer.lock
