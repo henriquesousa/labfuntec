@@ -139,7 +139,7 @@
                         <h4>Pesquise <p class="glyphicon glyphicon-info-sign pull-right info"></p></h4>
                         {{ Form::open([
                            //"url" => "relatorio/consulta-saidas",
-                           "url" => "#",
+                           "url" => "relatorio",
                            "autocomplete" => "on",
                            "class" => "form-horizontal"
                         ]) }}

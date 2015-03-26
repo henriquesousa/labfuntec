@@ -144,9 +144,7 @@ class RelatoriosController extends BaseController
         {
             $recibos = \Recibo::all();
             $analiseV = \Analise::all();
-
             return Cli::getRelatorioAllClientes($recibos, $analiseV);
-//            return $this->getAllRelatoriosCliente();
         }
     }
 
