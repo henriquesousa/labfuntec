@@ -5,8 +5,12 @@ use Validators\ReciboValidator as ReciboValidator;
 
 class RecibosController extends BaseController {
 
-	public function __construct() {
-		
+	public function __construct(ReciboRepositoryInterface $recibos, EnderecoRepositoryInterface $endereco,
+                                AnaliseRepositoryInterface $analise)
+    {
+        $this->recibos = $recibos;
+        $this->endereco = $endereco;
+        $this->analise = $analise;
 		$this->beforeFilter('csrf', array('on'=>'post'));
 		
 	}
@@ -19,7 +23,7 @@ class RecibosController extends BaseController {
 
 	public function index()
 	{
-		$recibos = Recibo::orderBy('id', 'DESC')->paginate(15);
+        $recibos = $this->recibos->reciboOrderBy('id', 'DESC', '15');
 		$qtd = count($recibos);
 
 		return View::make('recibos.list', compact('recibos', 'qtd'));
@@ -35,65 +39,41 @@ class RecibosController extends BaseController {
 	{
 		$clientes = Cliente::all();
 		$convenios = Convenio::all();
-		$analises = Analise::all();
+		$analises = $this->analise->getAnaliseAll();
 
 		return View::make('recibos.create', compact('clientes', 'convenios', 'analises'));
 	}
 
 	/**
 	 * Store a newly created funcionario in storage.
-	 *
+	 * @
 	 * @return Response
 	 */
 	public function store()
 	{
-		$input = Input::all();
+        $inputs = Input::all();
+        $validator = new ReciboValidator;
+        if ($validator->validate($inputs, 'create')) {
+            $recibos = $this->recibos->postRecibo($inputs);
 
-		$validator = new ReciboValidator;
-
-		$saida = new DateTime();
-
-
-		if ($validator->validate($input, 'create')) {
-		  	// validação OK
-			$recibo = new Recibo();
-            $recibo->labref = Input::get("labref");
-			$recibo->saida = $saida->add(new DateInterval( "P10D" ));
-			$recibo->cliente_id = Input::get("cliente");
-			$recibo->funcionario_id = 1;//Auth::user()->id;
-			$recibo->convenio_id = Input::get("convenio");
-			$recibo->pagamento = Input::get("pagamento");
-			$recibo->status = Input::get("status");
-			$recibo->save();
-
-
-
-
-			//dd($input['analise']);
             /**
-             * verifica se existe a chave no array
-             * parametro chave a ser verificada
-             * segundo parametro array a ser pesquisado
-            */
+             * Verify if exists key in array
+             * @param key $i
+             * @param array $inputs['analise']
+             */
             $i = 1;
-            while(array_key_exists($i, $input['analise']))
+            while(array_key_exists($i, $inputs['analise']))
             {
-                $endereco = new Endereco();
-                $endereco->recibo_id = $recibo->id;
-                $endereco->cidade = $input['cidade'.$i.''];
-                $endereco->corrego = $input['corrego'.$i.''];
-                $endereco->save();
-                $recibo->analise()->attach($input['analise'][$i], ['gleba' => $i]);
+                $this->endereco->postEndereco($recibos, $inputs, $i);
+                $this->recibos->reciboAttach($recibos, 'analise',$inputs['analise'], 'gleba', $i);
                 $i ++;
             }
-
             return Redirect::to('recibo');
-			
-		}
-		
-		// falha na validação
-		$errors = $validator->errors();
-		return Redirect::back()->withErrors($errors)->withInput();
+        }
+
+        // falha na validação
+        $errors = $validator->errors();
+        return Redirect::back()->withErrors($errors)->withInput();
 
 	}
 
@@ -105,8 +85,8 @@ class RecibosController extends BaseController {
 	 */
 	public function show($id)
 	{
-		$recibo = Recibo::findOrFail($id);
-		return View::make('recibos.print', compact('recibo'));
+		$recibo = $this->recibos->getReciboFoF($id);
+        return View::make('recibos.print', compact('recibo'));
 
 	}
 
@@ -118,11 +98,6 @@ class RecibosController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		/*
-		$recibo = Recibo::find($id);
-
-		return View::make('recibos.edit', compact('recibo'));
-		*/
 		return Redirect::to('recibo');
 	}
 
@@ -140,7 +115,7 @@ class RecibosController extends BaseController {
 
 		$validator = new ReciboValidator;
 
-		$recibo = Recibo::findOrFail($input['id']);
+		$recibo = $this->recibos->getReciboFoF($input['id']);
 
 		if ($validator->validate($input, 'update')) {
 
@@ -173,9 +148,9 @@ class RecibosController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		$recibo = Recibo::findOrFail($id);
-        $anRec = DB::table('analise_recibo')->where('recibo_id', $id)->delete();
-
+		$recibo = $this->recibos->getReciboFoF($id);
+        $anRec  = $this->analise->deleteAnaliseReciboByRecibo($id);
+        $endRec = $this->endereco->deleteEnderecoByRecibo($id);
 		$recibo->delete();
 
 		return Redirect::to('recibo');

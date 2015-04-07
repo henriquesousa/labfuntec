@@ -1,54 +1,42 @@
 <?php
+Route::group(array('before' => 'guest'), function() {
+    Route::get('/', 'UserController@login');
+    Route::any('/request', [
+        "as" => "user/request",
+        "uses" => "UserController@request"
+    ]);
+    Route::any('/reset', [
+        "as" => "user/reset",
+        "uses" => "UserController@reset"
+    ]);
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
+    Route::get('/index', 'UserController@login');
+    Route::any('/login', [
+        "as" => "login",
+        "uses" => "UserController@login"
+    ]);
+    Route::any('/logando', [
+        "as" => "logon",
+        "uses" => "UserController@logon"
+    ]);
 
-Route::get('/', 'UserController@login');
 
-Route::get('/index', 'UserController@login');
+    Route::get('/sites', function () {
+        return View::make('site.site');
+    });
 
-Route::get('/sobre', function()
-{
-	return View::make('site.site');
+    Route::get('/sobre', function () {
+        return View::make('site.site');
+    });
 });
 
-Route::get('/sites', function()
-{
-    return View::make('site.site');
-});
-
-/*
-| Metodos da Classe UserController
-*/
-Route::any('/login',[
-		"as"   => "login",
-		"uses" => "UserController@login"
-]);
-
-Route::any('/logando',[
-	"as"   => "logon",
-	"uses" => "UserController@logon"
-]);
-
-
-Route::get('/logout', 'UserController@logout');
-//--------------------------------------
-
-
-//Route::group(array('prefix' => 'admin', 'before' => 'auth'), function() 'before' => 'anbu.hide'
+//Route::group(array('prefix' => 'admin', 'before' => 'auth'), function() //'before' => 'anbu.hide'
 Route::group(array('before' => 'auth'), function()
 {
 	
 	Route::get('/index', 'HomeController@index');
 	Route::get('/', 'HomeController@index');
+    Route::get('/logout', 'UserController@logout');
 
 	
 	/*
@@ -109,3 +97,11 @@ Route::group(array('before' => 'auth'), function()
 	
 
 });
+
+/**
+ * Binds
+ */
+App::bind('UserRepositoryInterface', 'UserRepository');
+App::bind('ReciboRepositoryInterface', 'ReciboRepository');
+App::bind('EnderecoRepositoryInterface', 'EnderecoRepository');
+App::bind('AnaliseRepositoryInterface', 'AnaliseRepository');

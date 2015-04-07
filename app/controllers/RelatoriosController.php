@@ -21,6 +21,7 @@ class RelatoriosController extends BaseController
         //dd(Input::all());
         $mes = Input::get('mes');
         $nome = Input::get('nome');
+        $pg = Input::get('pagamento');
 
         if($nome != '' and $mes != 0) {
             $recibos = DB::table('recibos')
@@ -29,6 +30,7 @@ class RelatoriosController extends BaseController
                 ->join('clientes', 'recibos.cliente_id', '=', 'clientes.id')
                 ->join('convenios', 'recibos.convenio_id', '=', 'convenios.id')
                 ->where('clientes.nome', 'like', '%'.$nome.'%')
+                ->where('recibos.pagamento', '=', $pg)
                 ->whereRaw('MONTH(recibos.created_at) = ?', [$mes])
                 ->selectRaw('recibos.id, recibos.pagamento, clientes.nome as cli_nome, convenios.nome as conv_nome, analise_recibo.*, analises.*')
                 ->get();
@@ -47,6 +49,7 @@ class RelatoriosController extends BaseController
                 ->join('clientes', 'recibos.cliente_id', '=', 'clientes.id')
                 ->join('convenios', 'recibos.convenio_id', '=', 'convenios.id')
                 ->where('clientes.nome', 'like', '%'.$nome.'%')
+                ->where('recibos.pagamento', '=', $pg)
                 ->selectRaw('recibos.id, recibos.pagamento, clientes.nome as cli_nome, convenios.nome as conv_nome, analise_recibo.*, analises.*')
                 ->get();
 
@@ -63,6 +66,7 @@ class RelatoriosController extends BaseController
                 ->join('analises', 'analises.id', '=', 'analise_recibo.analise_id')
                 ->join('clientes', 'recibos.cliente_id', '=', 'clientes.id')
                 ->join('convenios', 'recibos.convenio_id', '=', 'convenios.id')
+                ->where('recibos.pagamento', '=', $pg)
                 ->whereRaw('MONTH(recibos.created_at) = ?', [$mes])
                 ->selectRaw('recibos.id, recibos.pagamento, clientes.nome as cli_nome, convenios.nome as conv_nome, analise_recibo.*, analises.*')
                 ->get();
@@ -75,7 +79,7 @@ class RelatoriosController extends BaseController
 
         }
         if($mes == 0 and $nome == '') {
-            return $this->getAllRelatoriosCliente();
+            return $this->getAllRelatoriosCliente($pg);
         }
 
     }
@@ -87,6 +91,7 @@ class RelatoriosController extends BaseController
     {
         $mes = Input::get('mes');
         $nome = Input::get('convenio');
+        $pg = Input::get('pagamento');
 
         if($nome != '' and $mes != 0) {
             $recibos = DB::table('recibos')
@@ -95,6 +100,7 @@ class RelatoriosController extends BaseController
                 ->join('clientes', 'recibos.cliente_id', '=', 'clientes.id')
                 ->join('convenios', 'recibos.convenio_id', '=', 'convenios.id')
                 ->where('convenios.nome', 'like', '%'.$nome.'%')
+                ->where('recibos.pagamento', '=', $pg)
                 ->whereRaw('MONTH(recibos.created_at) = ?', [$mes])
                 ->selectRaw('recibos.id, recibos.pagamento, clientes.nome as cli_nome, convenios.nome as conv_nome, analise_recibo.*, analises.*')
                 ->get();
@@ -112,7 +118,8 @@ class RelatoriosController extends BaseController
                 ->join('analises', 'analises.id', '=', 'analise_recibo.analise_id')
                 ->join('clientes', 'recibos.cliente_id', '=', 'clientes.id')
                 ->join('convenios', 'recibos.convenio_id', '=', 'convenios.id')
-                ->where('convenios.nome', 'like', ''.$nome.'')
+                ->where('convenios.nome', 'like', '%'.$nome.'%')
+                ->where('recibos.pagamento', '=', $pg)
                 ->selectRaw('recibos.id, recibos.pagamento, clientes.nome as cli_nome, convenios.nome as conv_nome, analise_recibo.*, analises.*')
                 ->get();
 
@@ -129,6 +136,7 @@ class RelatoriosController extends BaseController
                 ->join('analises', 'analises.id', '=', 'analise_recibo.analise_id')
                 ->join('clientes', 'recibos.cliente_id', '=', 'clientes.id')
                 ->join('convenios', 'recibos.convenio_id', '=', 'convenios.id')
+                ->where('recibos.pagamento', '=', $pg)
                 ->whereRaw('MONTH(recibos.created_at) = ?', [$mes])
                 ->selectRaw('recibos.id, recibos.pagamento, clientes.nome as cli_nome, convenios.nome as conv_nome, analise_recibo.*, analises.*')
                 ->get();
@@ -142,7 +150,7 @@ class RelatoriosController extends BaseController
         }
         if($mes == 0 and $nome == '')
         {
-            $recibos = \Recibo::all();
+            $recibos = \Recibo::where("pagamento", "=", $pg)->get();
             $analiseV = \Analise::all();
             return Cli::getRelatorioAllClientes($recibos, $analiseV);
         }
@@ -188,9 +196,9 @@ class RelatoriosController extends BaseController
         return Cli::getIsRelatorioCliente($recibos);
     }
 
-    public function getAllRelatoriosCliente()
+    public function getAllRelatoriosCliente($pg)
     {
-        $recibos = \Recibo::all();
+        $recibos = \Recibo::where("pagamento", "=", $pg)->get();
         $analiseV = \Analise::all();
 
         return Cli::getRelatorioAllClientes($recibos, $analiseV);

@@ -8,13 +8,14 @@ class RelatorioPdf extends Fpdf {
         global $codigo; // EXEMPLO DE UMA VARIAVEL QUE TERÁ O MESMO VALOR EM QUALQUER ÁREA DO PDF.
         $l=5; // DEFINI ESTA VARIAVEL PARA ALTURA DA LINHA
         $this->SetXY(10,10); // SetXY - DEFINE O X E O Y NA PAGINA
-        $this->Rect(10,10,190,270); // CRIA UM RETÂNGULO QUE COMEÇA NO X = 10, Y = 10 E
-        //TEM 190 DE LARGURA E 280 DE ALTURA.
+        //$this->Rect(10,10,190,270); // CRIA UM RETÂNGULO QUE COMEÇA NO X = 10, Y = 10 E
+        //TEM 190 DE LARGURA E 270 DE ALTURA.
         //NESTE CASO, É UMA BORDA DE PÁGINA.
 
-        $this->Image('site/img/logo.jpg',11,11,40); // INSERE UMA LOGOMARCA NO PONTO X = 11, Y = 11, E DE TAMANHO 40.
+        //$this->Image('site/img/logo.jpg',11,11,40); // INSERE UMA LOGOMARCA NO PONTO X = 11, Y = 11, E DE TAMANHO 40.
         $this->SetFont('Arial','B',8); // DEFINE A FONTE ARIAL, NEGRITO (B), DE TAMANHO 8
 
+        /*
         $this->Cell(190,5,utf8_decode('Ministério da Agricultura Pecuária e Abastecimento'),'C',0,'C');
         $this->Ln();
         $this->Cell(190,5,utf8_decode('Convênio: COOPERCAFÉ | UNEC - BR 116 KM 526 - Bairro das Graças'),'C',0,'C');
@@ -22,6 +23,8 @@ class RelatorioPdf extends Fpdf {
         $this->Cell(190,5,utf8_decode('Telefax:(33) 3321-1959 - CEP: 35.300-970 - Caratinga MG'),'C',0,'C');
         $this->Ln();
         $this->Cell(190,5,utf8_decode('E-mail: gerencia@labfuntec.com.br - atendimento@labfuntec.com.br'),'C',0,'C');
+        $this->Ln(); // QUEBRA DE LINHA
+        */
         // CRIA UMA CELULA COM OS SEGUINTES DADOS, RESPECTIVAMENTE:
         // LARGURA = 170,
         // ALTURA = 15,
@@ -31,13 +34,13 @@ class RelatorioPdf extends Fpdf {
         // ALINHAMENTO = 'L' = LEFT
 
 
-        $this->Ln(); // QUEBRA DE LINHA
+
 
         $this->Cell(190,10,'',0,0,'L');
         $this->Ln();
         $l = 17;
         $this->SetFont('Arial','B',12);
-        $this->SetXY(10,30);
+        $this->SetXY(10,15);
         $this->Cell(190,$l,utf8_decode('LAB-FUNTEC'),'B',1,'C');
 
         $this->Cell(190,2,'',0,0,'C');

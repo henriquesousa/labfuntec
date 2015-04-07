@@ -1,7 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: henrique
- * Date: 07/04/15
- * Time: 07:12
- */
+
+interface AnaliseRepositoryInterface {
+
+    public function getAnaliseAll();
+
+    public function deleteAnaliseReciboByRecibo($id);
+}

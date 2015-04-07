@@ -1,19 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: henrique
- * Date: 28/03/15
- * Time: 08:53
- */
 
-class ReciboRepositoryInterface {
+interface ReciboRepositoryInterface {
 
     public function getReciboAll();
 
-    public function getReciboClienteName($cliente);
+    public function postRecibo($inputs);
 
-    public function getReciboDataMes($mes);
+    public function reciboOrderBy($campo, $tipo, $results);
 
-    public function getReciboClienteAndData($cliente, $mes);
+    public function getReciboClienteName(Cliente $cliente);
 
+    public function getReciboDataMes(Recibo $mes);
+
+    public function getReciboClienteAndData(Cliente $cliente, Recibo $mes);
+
+    public function reciboAttach($obj, $relacionamento, $valor, $campo, $i);
+
+    public function getReciboFoF($id);
 }

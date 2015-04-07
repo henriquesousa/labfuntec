@@ -56,6 +56,12 @@
                            "class" => "form-horizontal"
                         ]) }}
 
+                            {{ Form::select('pagamento', [
+                                '1' => 'Pago',
+                                '2' => 'Devedor'
+                            ], 0, ['class' => 'form-control']) }}
+                            <p></p>
+
                             {{ Form::select('mes', [
                                 '0' => 'Selecione Mes',
                                 '1' => 'Janeiro',
@@ -100,6 +106,11 @@
                            "method" => "post"
                         ]) }}
 
+                            {{ Form::select('pagamento', [
+                                '1' => 'Pago',
+                                '2' => 'Devedor'
+                            ], 0, ['class' => 'form-control']) }}
+                            <p></p>
 
                             {{ Form::select('mes', [
                                 '0' => 'Selecione Mes',

@@ -6,6 +6,12 @@
  * Time: 16:56
  */
 
-class EnderecoRepositoryInterface {
+interface EnderecoRepositoryInterface {
+
+    public function allEndereco();
+
+    public function postEndereco($recibo, $inputs, $i);
+
+    public function deleteEnderecoByRecibo($id);
 
 }

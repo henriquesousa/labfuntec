@@ -1,7 +1,7 @@
 <?php
 
 use Validators\ClienteValidator as ClienteValidator;
-use Pdf\Cliente as rCli;
+//use Pdf\Cliente as rCli;
 
 class ClientesController extends BaseController {
 

@@ -1,6 +1,7 @@
 <?php
 
 use Validators\FuncionarioValidator as FuncionarioValidator;
+use Illuminate\Support\MessageBag as MessageBag;
 
 class UserController extends Controller
 {
@@ -8,10 +9,10 @@ class UserController extends Controller
 	/**
 	*	Apply the filter to each request type post
 	*/
-	public function __construct() {
-		
+	public function __construct(UserRepositoryInterface $users) {
+
+        $this->users = $users;
 		$this->beforeFilter('csrf', array('on'=>'post'));
-		
 	}
 
 
@@ -82,5 +83,84 @@ class UserController extends Controller
 		Auth::logout(); // log the user out of our application
 		return Redirect::to('login'); // redirect the user to the login screen
 	}
+
+    public function request()
+    {
+        $data = [
+            "requested"	=>	Input::old("requested")
+        ];
+
+        if (Input::server("REQUEST_METHOD") == "POST") {
+
+            $validator = Validator::make(Input::all(),
+                [
+                    "email" => "required"
+                ]);
+
+            if ($validator->passes) {
+
+                Password::remind($credentials, function($message, $user)
+                {
+                    $message->from("blecalt@gmail.com");
+                });
+
+                $data["requested"] = true;
+
+                return Redirect::route("user/request")->withInput($data);
+            }
+        }
+        return View::make("user/request", $data);
+    }
+
+    public function resetAction()
+    {
+        $token = "?$token".Input::get("token");
+
+        $errors = new MessageBag();
+        if($old = Input::old("errors"))
+        {
+            $errors = $old;
+        }
+
+        $data = [
+            "token"		=> $token,
+            "errors"	=>$errors
+        ];
+
+        if (Input::server("REQUEST_METHOD") == "POST") {
+
+            $validator = Validator::make(Input::all(),
+                [
+                    "email" 				=> "required",
+                    "password" 				=> "required|min:6",
+                    "password_confirmation" => "same:password",
+                    "token" 				=> "exists:token,token"
+                ]);
+
+            if ($validator->passes) {
+
+                $credentials = [
+                    "email"	=>	Input::get("email")
+                ];
+
+                Password::reset($credentials, function($user, $password)
+                {
+                    $user->password = Hash::make($password);
+                    $user->save();
+
+                    Auth::login($user);
+                    return Redirect::route("/");
+                }
+                );
+
+                $data["email"] = Input::get("email");
+                $data["errors"] = $validator->errors();
+
+                return Redirect::to(URL::route("user/reset").$token)->withInput($data);
+            }
+        }
+
+        return View::make("user/reset", $data);
+    }
 }
 		

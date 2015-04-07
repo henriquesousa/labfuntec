@@ -1,18 +1,35 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: henrique
- * Date: 28/03/15
- * Time: 08:57
- */
 
 class ReciboRepository implements ReciboRepositoryInterface
 {
-    public function getReciboAll(){
+    public function getReciboAll()
+    {
+        return Recibo::all();
+    }
 
+    public function postRecibo($inputs)
+    {
+        $saida = new DateTime();
+
+        $recibo = new Recibo();
+        $recibo->labref = Input::get("labref");
+        $recibo->saida = $saida->add(new DateInterval( "P10D" ));
+        $recibo->cliente_id = Input::get("cliente");
+        $recibo->funcionario_id = Auth::user()->id;
+        $recibo->convenio_id = Input::get("convenio");
+        $recibo->pagamento = Input::get("pagamento");
+        $recibo->status = Input::get("status");
+        $recibo->save();
+
+        return $recibo;
+    }
+
+    public function reciboOrderBy($campo, $tipo, $results)
+    {
+        return Recibo::orderBy($campo, $tipo)->paginate($results);
     }
     
-    public function getReciboClienteName($cliente)
+    public function getReciboClienteName(Cliente $cliente)
     {
         $recibos = DB::table('recibos')
             ->join('analise_recibo', 'recibos.id', '=', 'analise_recibo.recibo_id')
@@ -27,14 +44,23 @@ class ReciboRepository implements ReciboRepositoryInterface
         return $recibos;
     }
 
-    public function getReciboDataMes($mes)
+    public function getReciboDataMes(Recibo $mes)
     {
 
     }
 
-    public function getReciboClienteAndData($cliente, $mes)
+    public function getReciboClienteAndData(Cliente $cliente, Recibo $mes)
     {
 
     }
 
+    public function reciboAttach($obj, $relacionamento, $valor, $campo, $i)
+    {
+        $obj->$relacionamento()->attach($valor[$i], [$campo => $i]);
+    }
+
+    public function getReciboFoF($id)
+    {
+        return Recibo::findOrFail($id);
+    }
 }

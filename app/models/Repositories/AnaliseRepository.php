@@ -1,7 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: henrique
- * Date: 07/04/15
- * Time: 07:16
- */
+
+class AnaliseRepository implements AnaliseRepositoryInterface {
+
+    public function getAnaliseAll()
+    {
+        return Analise::all();
+    }
+
+    public function deleteAnaliseReciboByRecibo($id)
+    {
+        DB::table('analise_recibo')->where('recibo_id', $id)->delete();
+    }
+}
