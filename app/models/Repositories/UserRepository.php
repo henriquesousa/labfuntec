@@ -8,7 +8,7 @@
 
 class UserRepository implements UserRepositoryInterface
 {
-    public  function getAll()
+    public  function getUserAll()
     {
         return User::all()->toArray();
     }

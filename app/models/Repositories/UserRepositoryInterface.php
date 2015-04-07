@@ -9,6 +9,6 @@
 class UserRepositoryInterface
 {
 
-    public function getAll()
+    public function getUserAll();
 
 }
